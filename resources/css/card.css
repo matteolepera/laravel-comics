@@ -1,0 +1,270 @@
+/* =====================================================
+   DC COMICS — CARD COMPONENT
+   ===================================================== */
+
+.dc-card {
+    perspective: 1000px;
+    height: 380px;
+    cursor: pointer;
+}
+
+.dc-card__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dc-card:hover .dc-card__inner {
+    transform: rotateY(180deg);
+}
+
+/* ─── Fronte e Retro — base comune ─── */
+.dc-card__front,
+.dc-card__back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ─── FRONTE ─────────────────────────────────────── */
+.dc-card__front {
+    background: #111118;
+    display: flex;
+    flex-direction: column;
+}
+
+.dc-card__img-wrap {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.dc-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dc-card__type-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #0476f5;
+    padding: 3px 8px;
+    border-radius: 2px;
+}
+
+.dc-card__img-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, #111118);
+}
+
+.dc-card__front-body {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #111118;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dc-card__series {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0476f5;
+}
+
+.dc-card__title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.08em;
+    color: #e8e8f0;
+    line-height: 1;
+}
+
+.dc-card__price {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(232, 232, 240, 0.45);
+    letter-spacing: 0.04em;
+}
+
+/* ─── RETRO ──────────────────────────────────────── */
+.dc-card__back {
+    background: #0f0f17;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    padding: 16px 16px 14px;
+    gap: 0;
+    border-top: 2px solid #0476f5;
+}
+
+.dc-card__back-header {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    flex-shrink: 0;
+}
+
+.dc-card__back-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.08em;
+    color: #e8e8f0;
+    line-height: 1;
+}
+
+.dc-card__back-series {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0476f5;
+}
+
+
+.dc-card__back-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 2px 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(4, 118, 245, 0.4) transparent;
+}
+
+.dc-card__back-scroll::-webkit-scrollbar {
+    width: 3px;
+}
+
+.dc-card__back-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dc-card__back-scroll::-webkit-scrollbar-thumb {
+    background: rgba(4, 118, 245, 0.4);
+    border-radius: 2px;
+}
+
+.dc-card__description {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(232, 232, 240, 0.55);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dc-card__meta-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dc-card__meta-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(232, 232, 240, 0.28);
+}
+
+.dc-card__meta-value {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(232, 232, 240, 0.75);
+}
+
+.dc-card__people-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.dc-card__people-list li {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(232, 232, 240, 0.75);
+    padding-left: 8px;
+    position: relative;
+}
+
+.dc-card__people-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #0476f5;
+}
+
+.dc-card__back-fade {
+    flex-shrink: 0;
+    height: 20px;
+    margin-top: -20px;
+    background: linear-gradient(to bottom, transparent, #0f0f17);
+    pointer-events: none;
+    position: relative;
+    z-index: 1;
+}
+
+.dc-card__back-cta {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 34px;
+    margin-top: 10px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: #0476f5;
+    border-radius: 3px;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.dc-card__back-cta:hover {
+    background: #0562d0;
+    box-shadow: 0 0 16px rgba(4, 118, 245, 0.35);
+    transform: translateY(-1px);
+}

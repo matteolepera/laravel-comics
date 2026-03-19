@@ -32,4 +32,24 @@
             <span></span>
         </div>
     </section>
+
+    <section class="dc-series">
+        <div class="dc-series__header">
+            <div class="dc-series__label">
+                <span class="dc-series__label-line"></span>
+                <span class="dc-series__label-text">Current Series</span>
+            </div>
+            <a href="#" class="dc-series__view-all">View All <span>→</span></a>
+        </div>
+
+        <div class="dc-series__grid">
+            <x-card>
+
+            </x-card>
+        </div>
+
+        <div class="dc-series__footer">
+            <button class="dc-series__load-more">Load More</button>
+        </div>
+    </section>
 @endsection
