@@ -2,7 +2,7 @@
 
     <!-- LOGO -->
     <div class="logo">
-        <img src="{{ asset('img/dc-logo.png') }}" alt="DC Comics" />
+        <a href={{ route("home") }}> <img src="{{ asset('img/dc-logo.png') }}" alt="DC Comics" /> </a>
     </div>
 
     <!-- NAV -->
@@ -10,7 +10,7 @@
         <ul>
 
             <li>
-                <a href="#">Characters</a>
+                <a href={{ route("characters") }}>Characters</a>
             </li>
 
             <li>

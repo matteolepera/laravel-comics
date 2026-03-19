@@ -27,7 +27,7 @@
     <div class="dc-footer__col">
       <div class="dc-footer__col-title">DC Comics</div>
       <ul>
-        <li><a href="#">Characters</a></li>
+        <li><a href={{ route("characters") }}>Characters</a></li>
         <li><a href="#">Comics</a></li>
         <li><a href="#">Movies</a></li>
         <li><a href="#">TV</a></li>
