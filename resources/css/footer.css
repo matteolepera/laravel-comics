@@ -1,0 +1,207 @@
+/* =====================================================
+FOOTER 
+   ===================================================== */
+
+/* ─── Footer Shell ───────────────────────────────── */
+.dc-footer {
+    position: relative;
+    overflow: hidden;
+    font-family: 'Barlow', sans-serif;
+}
+
+
+.dc-footer__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+/* ─── Content Area ───────────────────────────────── */
+.dc-footer__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 48px;
+    padding: 48px 40px 40px;
+    max-width: 900px;
+    /* link zone è a sinistra, logo occupa la destra */
+}
+
+/* ─── Colonne ────────────────────────────────────── */
+.dc-footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 140px;
+}
+
+/* Titolo colonna */
+.dc-footer__col-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    color: #e8e8f0;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+
+    /* Lineetta accent sotto il titolo */
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(4, 118, 245, 0.35);
+}
+
+.dc-footer__col-title.mt {
+    margin-top: 24px;
+}
+
+/* Liste link */
+.dc-footer__col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.dc-footer__col ul li a {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: rgba(232, 232, 240, 0.45);
+    text-decoration: none;
+    padding: 3px 0;
+    transition: color 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+        padding-left 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dc-footer__col ul li a:hover {
+    color: #e8e8f0;
+    padding-left: 6px;
+}
+
+/* ─── Barra inferiore ────────────────────────────── */
+.dc-footer__bar {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.dc-footer__bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    gap: 24px;
+}
+
+/* ─── Sign-Up Button ─────────────────────────────── */
+.dc-footer__signup {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 22px;
+    height: 40px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0476f5;
+    border: 1.5px solid #0476f5;
+    border-radius: 3px;
+    background: transparent;
+    transition: background 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dc-footer__signup:hover {
+    background: #0476f5;
+    color: #fff;
+    box-shadow: 0 0 18px rgba(4, 118, 245, 0.30);
+}
+
+/* ─── Social Row ─────────────────────────────────── */
+.dc-footer__social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dc-footer__social-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0476f5;
+    margin-right: 6px;
+}
+
+/* Icone social — cerchio con bordo */
+.dc-footer__social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+    transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dc-footer__social-icon img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.55;
+    transition: opacity 0.2s;
+}
+
+.dc-footer__social-icon:hover {
+    border-color: #0476f5;
+    background: rgba(4, 118, 245, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(4, 118, 245, 0.25);
+}
+
+.dc-footer__social-icon:hover img {
+    opacity: 1;
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 768px) {
+    .dc-footer__content {
+        flex-wrap: wrap;
+        gap: 32px;
+        padding: 36px 24px 28px;
+    }
+
+    .dc-footer__col {
+        min-width: calc(50% - 16px);
+    }
+
+    .dc-footer__bar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px 24px;
+    }
+
+    .dc-footer__bg {
+        background: linear-gradient(to bottom,
+            rgba(10, 10, 15, 0.97) 60%,
+            rgba(10, 10, 15, 0.80) 100%),
+        url('{{ asset("img/footer-bg.jpg") }}') center / cover no-repeat;
+    }
+}
+
+/* =====================================================
+END_FOOTER 
+   ===================================================== */
