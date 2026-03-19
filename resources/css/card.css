@@ -3,15 +3,18 @@
    ===================================================== */
 
 .dc-card {
-    perspective: 1000px;
-    height: 380px;
+    perspective: none;
+    height: auto;
+    min-height: 380px;
     cursor: pointer;
+    display: flex;
 }
 
 .dc-card__inner {
+    perspective: 1000px;
     position: relative;
     width: 100%;
-    height: 100%;
+    flex: 1;
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -39,9 +42,11 @@
     flex-direction: column;
 }
 
+/* Immagine — altezza fissa, si adatta */
 .dc-card__img-wrap {
     position: relative;
-    flex: 1;
+    height: 260px;
+    flex-shrink: 0;
     overflow: hidden;
 }
 
@@ -78,6 +83,7 @@
     background: linear-gradient(to bottom, transparent, #111118);
 }
 
+/* Body — cresce liberamente con il contenuto */
 .dc-card__front-body {
     padding: 12px 14px 14px;
     display: flex;
@@ -85,6 +91,7 @@
     gap: 4px;
     background: #111118;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex-shrink: 0;
 }
 
 .dc-card__series {
@@ -94,6 +101,9 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #0476f5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .dc-card__title {
@@ -101,7 +111,7 @@
     font-size: 20px;
     letter-spacing: 0.08em;
     color: #e8e8f0;
-    line-height: 1;
+    line-height: 1.1;
 }
 
 .dc-card__price {
@@ -110,6 +120,7 @@
     font-weight: 600;
     color: rgba(232, 232, 240, 0.45);
     letter-spacing: 0.04em;
+    margin-top: 4px;
 }
 
 /* ─── RETRO ──────────────────────────────────────── */
@@ -148,7 +159,6 @@
     text-transform: uppercase;
     color: #0476f5;
 }
-
 
 .dc-card__back-scroll {
     flex: 1;

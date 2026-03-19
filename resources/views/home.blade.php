@@ -3,6 +3,11 @@
     DC Comics©
 @endsection
 
+@php
+    // dd(config("comics"));
+    $comics = config("comics");
+@endphp
+
 @section("main")
     <style>
         .dc-hero__bg {
@@ -43,9 +48,32 @@
         </div>
 
         <div class="dc-series__grid">
-            <x-card>
+            @foreach ($comics as $comic)
+                <x-card>
 
-            </x-card>
+                    <x-slot:title> {{ $comic["title"] }} </x-slot:title>
+                    <x-slot:description> {{ $comic["description"] }} </x-slot:description>
+                    <x-slot:thumb> {{ $comic["thumb"] }} </x-slot:thumb>
+                    <x-slot:price> {{ $comic["price"] }} </x-slot:price>
+                    <x-slot:series> {{ $comic["series"] }} </x-slot:series>
+                    <x-slot:sale_date> {{ $comic["sale_date"] }} </x-slot:sale_date>
+                    <x-slot:type> {{ $comic["type"] }} </x-slot:type>
+
+
+                    <x-slot:artists>
+                        @foreach ($comic["artists"] as $artist)
+                            <li>{{ $artist }}</li>
+                        @endforeach
+                    </x-slot:artists>
+
+                    <x-slot:writers>
+                        @foreach ($comic["writers"] as $writer)
+                            <li>{{ $writer }}</li>
+                        @endforeach
+                    </x-slot:writers>
+
+                </x-card>
+            @endforeach
         </div>
 
         <div class="dc-series__footer">
