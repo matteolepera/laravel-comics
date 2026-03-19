@@ -1,6 +1,7 @@
 @import "header.css";
 @import "footer.css";
 @import "card.css";
+@import "prefooter.css";
 
 body {
     display: flex;

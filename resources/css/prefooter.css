@@ -1,0 +1,134 @@
+/* =====================================================
+   DC COMICS — PREFOOTER
+   ===================================================== */
+
+.dc-prefooter {
+    background: #0476f5;
+    position: relative;
+    overflow: hidden;
+}
+
+.dc-prefooter::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%,
+            rgba(0, 0, 0, 0.10) 100%);
+    pointer-events: none;
+}
+
+
+.dc-prefooter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.5) 30%,
+            #e8c840 70%,
+            transparent 100%);
+}
+
+.dc-prefooter__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dc-prefooter__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 28px 20px;
+    text-decoration: none;
+    position: relative;
+    transition: background 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dc-prefooter__item:hover {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.dc-prefooter__item:hover .dc-prefooter__icon-wrap img {
+    transform: translateY(-4px);
+    filter: brightness(0) invert(1) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+}
+
+.dc-prefooter__item:hover .dc-prefooter__label {
+    color: #fff;
+}
+
+.dc-prefooter__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+}
+
+.dc-prefooter__icon-wrap img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.25s,
+        opacity 0.25s;
+}
+
+.dc-prefooter__icon-wrap--visa {
+    height: 56px;
+}
+
+.dc-prefooter__icon-wrap--visa img {
+    height: 52px;
+    opacity: 0.90;
+}
+
+/* Label */
+.dc-prefooter__label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    transition: color 0.2s;
+}
+
+.dc-prefooter__divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    align-self: stretch;
+    margin: 16px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dc-prefooter__inner {
+        flex-wrap: wrap;
+    }
+
+    .dc-prefooter__item {
+        flex: 1 1 calc(50% - 1px);
+        padding: 24px 16px;
+    }
+
+    .dc-prefooter__divider {
+        display: none;
+    }
+}
