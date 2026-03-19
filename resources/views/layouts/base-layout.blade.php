@@ -12,7 +12,7 @@
 <body>
     @include("partials.header")
     <main>
-        <h1>@yield("title")</h1>
+        @yield("main")
     </main>
 
     @include("partials.footer")

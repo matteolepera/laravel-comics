@@ -10,3 +10,234 @@ body {
 main {
     flex: 1;
 }
+
+/* =====================================================
+   DC COMICS HERO
+   ===================================================== */
+
+.dc-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 560px;
+    max-height: 860px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Background image */
+.dc-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    transform: scale(1.04);
+    transition: transform 8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dc-hero:hover .dc-hero__bg {
+    transform: scale(1.0);
+}
+
+/* Gradient overlay — scuro in basso, trasparente in alto */
+.dc-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(to bottom,
+            rgba(10, 10, 15, 0.10) 0%,
+            rgba(10, 10, 15, 0.20) 40%,
+            rgba(10, 10, 15, 0.75) 70%,
+            rgba(10, 10, 15, 0.97) 100%),
+        linear-gradient(to right,
+            rgba(10, 10, 15, 0.70) 0%,
+            rgba(10, 10, 15, 0.20) 60%,
+            transparent 100%);
+}
+
+/* Accent line top — coerente con header */
+.dc-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 10;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            #0476f5 30%,
+            #e8c840 70%,
+            transparent 100%);
+    opacity: 0.6;
+}
+
+/* Content */
+.dc-hero__content {
+    position: relative;
+    z-index: 2;
+    padding: 0 60px 72px;
+    max-width: 680px;
+}
+
+/* Eyebrow */
+.dc-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #0476f5;
+    margin-bottom: 16px;
+}
+
+.dc-hero__eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: #0476f5;
+    border-radius: 2px;
+}
+
+/* Title */
+.dc-hero__title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    color: #e8e8f0;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+/* Subtitle */
+.dc-hero__subtitle {
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(232, 232, 240, 0.60);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+}
+
+/* CTA buttons */
+.dc-hero__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.dc-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    height: 46px;
+    padding: 0 28px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Primary CTA */
+.dc-hero__cta--primary {
+    background: #0476f5;
+    color: #fff;
+    border: 1.5px solid #0476f5;
+}
+
+.dc-hero__cta--primary:hover {
+    background: #0562d0;
+    border-color: #0562d0;
+    box-shadow: 0 0 28px rgba(4, 118, 245, 0.40);
+    transform: translateY(-1px);
+}
+
+/* Secondary CTA */
+.dc-hero__cta--secondary {
+    background: transparent;
+    color: rgba(232, 232, 240, 0.75);
+    border: 1.5px solid rgba(232, 232, 240, 0.25);
+}
+
+.dc-hero__cta--secondary:hover {
+    color: #e8e8f0;
+    border-color: rgba(232, 232, 240, 0.60);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-1px);
+}
+
+/* Scroll hint */
+.dc-hero__scroll-hint {
+    position: absolute;
+    bottom: 28px;
+    right: 48px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dc-hero__scroll-hint span {
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, rgba(4, 118, 245, 0.8), transparent);
+    animation: scrollLine 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 1;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+        opacity: 1;
+    }
+
+    51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dc-hero__content {
+        padding: 0 24px 48px;
+        max-width: 100%;
+    }
+
+    .dc-hero__scroll-hint {
+        display: none;
+    }
+}
+
+/* =====================================================
+  END - DC COMICS HERO
+   ===================================================== */
